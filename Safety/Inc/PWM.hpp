@@ -25,6 +25,7 @@
 
 #define DSHOT_DATA_FRAME_LEN 16
 #define DSHOT_DMA_BUFFER_SIZE 18
+#define DSHOT_MAX_THROTTLE 2047
 
 typedef uint8_t PWMChannelNum;
 
@@ -79,7 +80,7 @@ class PWMChannel {
   * @param frame DSHOT data frame
   * @retval None
   */    
-    void dshotPrepareDMABuffer(uint32_t * dmaBuffer, uint16_t frame);
+    void dshotPrepareDMABuffer(uint32_t * dmaBuffer, uint8_t throttlePercentage);
 
 /**
   * @brief Starts PWM generation of channels 1-4 on TIM1
@@ -88,5 +89,7 @@ class PWMChannel {
   * @retval None
   */
     void DshotStartPWM();
+
+  
 
 };
